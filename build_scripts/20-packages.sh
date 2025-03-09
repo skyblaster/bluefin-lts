@@ -21,11 +21,19 @@ dnf -y install \
 	wl-clipboard \
 	gum \
 	jetbrains-mono-fonts-all \
-	buildah
+	buildah \
+ 	webkitgtk \
+  	libsoup3
 
 # Everything that depends on external repositories should be after this.
 # Make sure to set them as disabled and enable them only when you are going to use their packages.
 # We do, however, leave crb and EPEL enabled by default.
+
+update-crypto-policies --set LEGACY
+rpm --import https://packages.microsoft.com/keys/microsoft.asc
+dnf config-manager --add-repo https://packages.microsoft.com/yumrepos/microsoft-rhel9.0-prod
+dnf -y install \
+	intune-portal
 
 dnf config-manager --add-repo "https://pkgs.tailscale.com/stable/centos/${MAJOR_VERSION_NUMBER}/tailscale.repo"
 dnf config-manager --set-disabled "tailscale-stable"
