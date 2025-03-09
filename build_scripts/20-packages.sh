@@ -15,15 +15,12 @@ dnf -y install \
 	gnome-shell-extension-{appindicator,dash-to-dock,blur-my-shell} \
 	just \
 	powertop \
-	tuned-ppd \
 	fzf \
 	glow \
 	wl-clipboard \
 	gum \
 	jetbrains-mono-fonts-all \
-	buildah \
- 	webkitgtk \
-  	libsoup3
+	buildah
 
 # Everything that depends on external repositories should be after this.
 # Make sure to set them as disabled and enable them only when you are going to use their packages.
